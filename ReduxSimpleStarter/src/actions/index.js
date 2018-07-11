@@ -5,9 +5,14 @@ const ROOR_URL = `https://api.openweathermap.org/data/2.5/forecast?appid=${API_K
 
 export const FETCH_WEATHER = 'FETCH_WEATHER';
 
-export function fetchWeather (city) {
+export function fetchWeather(city) {
     const url = `${ROOR_URL}&q=${city},us`;
-    const request = axios.get(url);
+    const request = axios.get(url).then(function(response){
+        console.log('request:', response.data);
+    });
+
+    
+
     return {
         type: FETCH_WEATHER,
         payload: request
