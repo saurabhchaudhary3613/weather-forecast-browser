@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Chart from '../components/chart';
+import GoogleMap from '../components/google-map';
 
 
 class WeatherList extends Component {
@@ -15,21 +16,26 @@ class WeatherList extends Component {
             const temp = cityData.list.map(weather => weather.main.temp);
             const pressure = cityData.list.map(weather => weather.main.pressure);
             const humidity = cityData.list.map(weather => weather.main.humidity);
+            // const lon = cityData.city.coord.lon;
+            // const lat = cityData.city.coord.lat;
+            const { lon, lat } = cityData.city.coord;
+
             console.log(temp);
             return (
             
                 <tr key={name}>
-                    <td>
+                    {/* <td>
                         {name}
-                    </td>
+                    </td> */}
+                    {<td><GoogleMap lon={lon} lat={lat} /></td>}
                    <td>
-                       <Chart data={temp} color="orange"/>
+                       <Chart data={temp} color="orange" unit="K"/>
                    </td>
                    <td>
-                       <Chart data={pressure} color="green"/>
+                       <Chart data={pressure} color="green" unit="hpa"/>
                    </td>
                    <td>
-                       <Chart data={humidity} color="black"/>
+                       <Chart data={humidity} color="black" unit="%"/>
                    </td>
                 </tr>
     
@@ -52,9 +58,9 @@ class WeatherList extends Component {
                 <thead>
                     <tr>
                         <th>City</th>
-                        <th>Temprature</th>
-                        <th>Pressure</th>
-                        <th>Humidty</th>
+                        <th>Temprature (k)</th>
+                        <th>Pressure (hpa)</th>
+                        <th>Humidty (%)</th>
 
                     </tr>
                 </thead>

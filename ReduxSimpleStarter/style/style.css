@@ -1,0 +1,24 @@
+
+.search-form {
+    width: 100%;
+}
+.search-input {
+    width: 92% !important;
+}
+
+td, th {
+    vertical-align: middle;
+    text-align:  center;
+}
+.input-group {
+    margin: 20px 0;
+}
+
+svg {
+    height: 150
+}
+
+td:first-of-type, td:first-of-type > div {
+    height: 200px;
+    width: 250px;
+}
