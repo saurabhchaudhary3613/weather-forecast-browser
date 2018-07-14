@@ -8,26 +8,20 @@ class WeatherList extends Component {
 
     renderWeather(cityData) {
         console.log('data', cityData);
+        const name = cityData.city.name;
         return (
-            <tr key={cityData.city.name}>
+            <tr key={name}>
                 <td>
-                    {cityData.city.name}
+                    {name}
                 </td>
             </tr>
 
         );
         
     }
-    componentWillReceiveProps(nextProps){
-        console.log(this.props);
-        console.log('next');
-        console.log(nextProps);
-    }
-
+    
     render() {
-        console.log('in render')
-        console.log(this.props.weather);
-        //let weather = this.props.weather;
+       
         return (
             <table className="table table-hover">
                 <thead>
